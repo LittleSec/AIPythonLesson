@@ -1,2 +1,2 @@
-# AIPythonLesson
-大四学院请公司开的Python人工智能实训课笔记，部分笔记内嵌在代码注释。
+# 1stSaturday
+1. ```funclearn.py```之前没接触过的函数学习，主要有闭包、装饰器、多参数（装包和解包）。
