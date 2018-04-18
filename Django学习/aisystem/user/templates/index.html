@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+            }
+            
+            div{
+                background: green;
+                height: 30px;
+                color: white;
+                line-height: 30px
+            }
+        </style>
+    </head>
+    <body>
+        <div>{{mes}}</div>
+        主页
+        <ul>
+            {% for user in users%}
+            <li>{{user.username}}</li>
+            {% endfor %}
+        </ul>
+
+    </body>
+</html>
