@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block layout %}
+<form action="/article/create" method="POST" , enctype="multipart/form-data">
+    {% csrf_token %}
+    <div>
+        <span>文章标题</span>
+        <input name="articleName" type="text" />
+    </div>
+    <div>
+        <span>文章内容</span>
+        <textarea name="articleContent" type="text"></textarea>
+    </div>
+    <div>
+        <span>文章封面</span>
+        <input name="articlePic" type="file" />
+    </div>
+    <div>
+        <input class="button" type="submit" value="创建" />
+    </div>
+</form>
+{% endblock %}
