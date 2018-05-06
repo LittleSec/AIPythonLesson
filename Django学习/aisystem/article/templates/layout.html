@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+        
+        ul{
+            list-style: none;
+        }
+
+        .content {
+            width: 80%;
+            height: 100%;
+            border: 1px solid gray;
+            margin: 0 atuo;
+            text-align: center;
+            padding: 0.025em;
+        }
+
+        .content div {
+            margin-top: 20px;
+        }
+
+        .content div span {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .content div input,
+        textarea {
+            vertical-align: middle;
+        }
+
+        .content input,
+        textarea {
+            width: 80%;
+            height: 80px;
+            border: 1px solid green;
+        }
+
+        .content input[name=articlePic] {
+            border: 0;
+            vertical-align: middle;
+        }
+
+        .content input.button {
+            background: green;
+            width: 50%;
+            border-radius: 10px;
+            color: white;
+            font-size: 2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+{% block header %} {% endblock %}
+<body>
+    <div class="content">
+        欢迎访问：{{request.session.username}} <a href="/user/loginout">退出</a>
+        {% block layout %} {% endblock %}
+    </div>
+    {% load staticfiles %}
+    <script src="../static/js/jquery-3.3.1.js"></script>
+</body>
+
+</html>
