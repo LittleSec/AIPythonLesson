@@ -18,8 +18,11 @@
     <div></div>
     <form action="/user/login" method="POST">
         {% csrf_token %}<!-- 这个是框架为了防止机器模拟提交所设定的安全措施 -->
+        <!-- 实际上csrf_token会让浏览器存入一个cookie -->
         用户名：<input name="username" />
         密码：<input name="password" />
+        验证码：<input name="code" />        
+        <img src="/user/code" alt="">
         <input type="submit" value="登录" /><span style="color: red">{{mes}}</span>
     </form>
 </body>
