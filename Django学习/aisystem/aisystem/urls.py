@@ -18,5 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user', include('user.urls')) # 增加映射，这样每创建一个微服务就可以直接在这里创建映射，达到模块化。注意要import include
+    path('user', include('user.urls')), # 增加映射，这样每创建一个微服务就可以直接在这里创建映射，达到模块化。注意要import include
+    path('article', include('article.urls')),
+    path('', include('article.urls')) # 根目录不需要加'/'，直接空字符串即可
 ]

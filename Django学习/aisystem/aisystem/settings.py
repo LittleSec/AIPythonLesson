@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'user'
+    'user',
+    'article'
 ]
 
+# 中间件，起拦截的作用
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'aisystem.middleware.sys.LoginMiddleWare',
 ]
 
 ROOT_URLCONF = 'aisystem.urls'
@@ -123,3 +126,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+UPLOAD_PATH = os.path.join(BASE_DIR, 'static/upload') # 文件上传路径，BASE_DIR是项目的绝对路径，记得创建对应的文件夹
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), ) # 配置访问静态文件，如css,js

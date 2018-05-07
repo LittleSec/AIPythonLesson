@@ -8,7 +8,9 @@
     + 在创建项目的时候本身就创建了一个和项目同名的微服务
     + 创建后应当的在setting.py里的INSTALLED_APPS里添加该app名
 4. 创建映射（利用django生成表）
-```python3 manage.py makemigrations```
+```python3 manage.py makemigrations [appname]```
+    + appname理应不需要加，当新增app的时候，该命令会重新扫描所有setting.py里的INSTALLED_APPS列表
+    + 如果无法识别列表有新增，则加上appname
 5. 创建数据库
 ```python3 manage.py migrate```
     + pip3 install mysqlclient(pymysql)
