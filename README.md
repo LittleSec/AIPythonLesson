@@ -15,6 +15,20 @@
 2. aisystem项目完成了基本的[***mvc***](./Django学习/note.md)框架流程，能连接数据库，前端页面能与后台作最简单的交互。
 3. 后续学习可能都是直接在这基础上进行。
 
+# 三、2ndSaturday
+1. 新增article微服务，与文章相关。（相当于复习前面的知识。）
+    + 创建app --> 注册app --> model对象 --> 创建映射 --> ORM创建数据库 --> templates --> 注册url（项目的、app的）
+2. 学习使用layout模板。
+3. 文件上传，数据库访问。
+4. 前端js交互，锚点。
+
+# 四、2ndSunday
+1. article与user微服务的结合。
+    + 验证登录，含验证码，session
+3. python高级特性学习
+    + 生成器、迭代器
+    + 截图、socket编程
+
 # 自己写的和同学写的一些博客
 1. [macOS下Django配置mysql，无法安装mysqlclient的问题](http://www.cnblogs.com/LittleSec/p/8854862.html) *by: 辣条小布丁（me）*
 2. [django ORM入门](http://www.cnblogs.com/superxuezhazha/p/8850019.html) *by: 超级学渣渣（助教肖年浩）*
