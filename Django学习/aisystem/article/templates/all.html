@@ -1,0 +1,76 @@
+{% extends 'layout.html' %} {% block header %}
+<style>
+    .list li {
+        height: 2.2em;
+        line-height: 2.2em;
+        font-size: 2em;
+        color: gray;
+        border-bottom: 1px solid silver;
+    }
+
+    .list li:hover {
+        background: #b6bac3;
+    }
+
+    .articleContent {
+        width: 40%;
+        height: 40%;
+        border: 1px solid red;
+        display: none;
+        position: absolute;
+    }
+</style>
+{% endblock %} {% block layout %}
+<ul class="list">
+
+</ul>
+
+<div class="articleContent">
+
+</div>
+
+<script>
+    var obscache = [];
+    window.onload = function () {
+        $.ajax({
+            url: '/article/all',
+            method: 'POST',
+            data: {},
+            success: function (data) {
+                // console.log(data);
+                var obs = JSON.parse(data);
+                obscache.push(obs);
+                var ulcontent = $(".list");
+                for (var i in obs.articlelist) {
+                    var article = obs.articlelist[i]
+                    var licontent = '<li id="'+ article.articleId +'">' + article.articleName + '</li>';
+                    ulcontent.append(licontent);
+                }
+                $("li").mousemove(function (e) {
+                    $(".articleContent").show();
+                    $(".articleContent").css({"left":e.pageX,"top":e.pageY});
+                    var id = $(this).attr("id");
+                    for (var i in obscache){
+                        var articleArray = obscache[i];
+                        for(var j in articleArray.articlelist){
+                            var article = articleArray.articlelist[j];
+                            if(article.articleId == id){
+                                $(".articleContent").html(article.articleContent);
+                                break;
+                            }
+                        }
+                    }
+                });
+                $("li").mouseleave(function(e){
+                    $(".articleContent").hide();
+                });
+            }
+        });
+    };
+
+    function showContent() {
+
+    }
+</script>
+
+{% endblock %}
