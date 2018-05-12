@@ -11,16 +11,13 @@ import socket
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-server.bind(('127.0.0.1', 5050)) # 绑定，参数是个元组，包含主机地址和端口号等。
+server.bind(('127.0.0.1', 5000)) # 绑定，参数是个元组，包含主机地址和端口号等。
 server.listen(10) # 监听，最大链接数量是100
 
 while True:
     socketclient, addr = server.accept() # 链接客户端，答应请求
-    print(1)
-    res = b"""HTTP/1.1 200 OK
-    <html><body>hello</body></html>
-    """
-    print(2)
-    socketclient.sendall(res) # 客户端发送消息
-    print(3)
+    request = socketclient.recv(1024)
+    print(request)
+    res = 'http/1.1 200 ok \n\n<h1>hello world!</h1>'
+    socketclient.sendall(res.encode('utf-8')) # 客户端发送消息
     socketclient.close()
