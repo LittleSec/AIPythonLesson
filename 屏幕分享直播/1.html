@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="http://127.0.0.1:5000/" style="width: 100%" />
+    <script>
+        window.setInterval(function () {
+            // window.location.reload(); // 这样会整个网页刷新，我们只需要刷新图片
+            var img = document.getElementsByTagName("img")[0];
+            img.src="http://127.0.0.1:5000?" + Math.random();
+        }, 1000);
+    </script>
+</body>
+
+</html>
