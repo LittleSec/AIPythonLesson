@@ -24,7 +24,7 @@ class LkSplider(scrapy.Spider):
         for ob in obs:
             item = JiaotongItem()
             item['date'] = ob['pubdate']
-            content = ob['roadStatus']
+            content = ob['roadStatus'].replace('）', ')').replace('（', '(')
             item['road'] = content[:content.rindex(')')+1] # 最后一个')'
             item['des'] = content[content.rindex(')')+1:]
             yield item
